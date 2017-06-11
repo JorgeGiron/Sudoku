@@ -110,12 +110,17 @@ bool sudoku_esTableroTotalmenteResuelto(Tablero t) {
 
 bool sudoku_esSubTablero(Tablero t0, Tablero t1) {
 	bool res = true;
-	for(int f = 0; f < 9; f++){
-		for(int c = 0; c < 9; c++){
-			if (t0[f][c] != 0 && res == true){
+	int f = 0;
+	int c;
+	while(indiceValido(f)){
+		c = 0;
+		while(indiceValido(c)){
+			if (t0[f][c] != 0 && res){
 				res = t0[f][c] == t1[f][c];
 			}
+		c++;
 		}
+	f++;
 	}
 	return res;
 }
